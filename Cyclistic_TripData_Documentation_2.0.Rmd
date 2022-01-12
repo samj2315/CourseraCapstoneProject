@@ -1,0 +1,837 @@
+---
+title: "Cyclistic_tripdata_RM"
+output: html_document
+author: Samuel Johnson
+date: 01/03/2022
+---
+
+## Extract Data from Files
+
+Downloaded orignial files of previous 12 monthes of trip data from:
+
+https://divvy-tripdata.s3.amazonaws.com/index.html
+
+
+During the main part of the data cleaning process, I chose to utilize pipes in order to keep my code more condensed and easier to read. The drop_na() function was used to get rid of null values. The select() function was used to pick out only the columns of interest (rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, and member_casual). 
+
+I used the following code to generate 12 cleaned data frames simply by altering the dataset id (yyyymm) in each line, this was done for datasets December-2020 (202012) through November-2021 (202111).
+
+```{r}
+library("tidyverse")
+library("janitor")
+
+
+
+X202012_DF <- read_csv("202012-divvy-tripdata.csv")
+
+cleaned_202012_DF <- X202012_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202012_DF,"CleanedBikeData202012.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202101
+
+X202101_DF <- read_csv("202101-divvy-tripdata.csv")
+
+cleaned_202101_DF <- X202101_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202101_DF,"CleanedBikeData202101.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202102
+
+X202102_DF <- read_csv("202102-divvy-tripdata.csv")
+
+cleaned_202102_DF <- X202102_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202102_DF,"CleanedBikeData202102.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202103
+
+X202103_DF <- read_csv("202103-divvy-tripdata.csv")
+
+cleaned_202103_DF <- X202103_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202103_DF,"CleanedBikeData202103.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202104
+
+X202104_DF <- read_csv("202104-divvy-tripdata.csv")
+
+cleaned_202104_DF <- X202104_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202104_DF,"CleanedBikeData202104.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202105
+
+X202105_DF <- read_csv("202105-divvy-tripdata.csv")
+
+cleaned_202105_DF <- X202105_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202105_DF,"CleanedBikeData202105.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202106
+
+X202106_DF <- read_csv("202106-divvy-tripdata.csv")
+
+cleaned_202106_DF <- X202106_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202106_DF,"CleanedBikeData202106.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202107
+
+X202107_DF <- read_csv("202107-divvy-tripdata.csv")
+
+cleaned_202107_DF <- X202107_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202107_DF,"CleanedBikeData202107.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202108
+
+X202108_DF <- read_csv("202108-divvy-tripdata.csv")
+
+cleaned_202108_DF <- X202108_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202108_DF,"CleanedBikeData202108.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202109
+
+X202109_DF <- read_csv("202109-divvy-tripdata.csv")
+
+cleaned_202109_DF <- X202109_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202109_DF,"CleanedBikeData202109.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202110
+
+X202110_DF <- read_csv("202110-divvy-tripdata.csv")
+
+cleaned_202110_DF <- X202110_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202110_DF,"CleanedBikeData202110.csv", row.names = FALSE)
+
+
+
+
+# Dataset_id_202111
+
+X202111_DF <- read_csv("202111-divvy-tripdata.csv")
+
+cleaned_202111_DF <- X202111_DF %>% 
+  drop_na() %>% 
+  select("member_casual", "rideable_type", "start_station_name", "start_station_id", "end_station_name", "end_station_id") 
+  
+write.csv(cleaned_202111_DF,"CleanedBikeData202111.csv", row.names = FALSE)
+
+
+```
+
+## Get Initial Totals for Each Month
+
+The summarize() and sum() functions were used in conjunction to get totals for annual members, casual users, total users, docked bikes, electric bikes, classic bikes, and total bikes for each individual, cleaned dataset.
+
+I entered these results into a new spreadsheet in order to make pivot tables. I used the condition function =IF(E2=O2, TRUE()) to check that my data had been entered correctly and that the total number of users was equal to the total number of bikes for each individual dataset.
+
+```{r}
+
+# Dataset_id_202012
+
+trim202012_DF <- cleaned_202012_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202012_DF)
+
+
+docked_202012_DF <- cleaned_202012_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202012_DF)
+
+
+electric_202012_DF <- cleaned_202012_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202012_DF)
+
+
+classic_202012_DF <- cleaned_202012_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202012_DF)
+
+
+
+# Dataset_id_202101
+
+trim202101_DF <- cleaned_202101_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202101_DF)
+
+
+docked_202101_DF <- cleaned_202101_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202101_DF)
+
+
+electric_202101_DF <- cleaned_202101_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202101_DF)
+
+
+classic_202101_DF <- cleaned_202101_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202101_DF)
+
+
+
+# Dataset_id_202102
+
+trim202102_DF <- cleaned_202102_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202102_DF)
+
+
+docked_202102_DF <- cleaned_202102_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202102_DF)
+
+
+electric_202102_DF <- cleaned_202102_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202102_DF)
+
+
+classic_202102_DF <- cleaned_202102_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202102_DF)
+
+
+
+# Dataset_id_202103
+
+trim202103_DF <- cleaned_202103_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202103_DF)
+
+
+docked_202103_DF <- cleaned_202103_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202103_DF)
+
+
+electric_202103_DF <- cleaned_202103_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202103_DF)
+
+
+classic_202103_DF <- cleaned_202103_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202103_DF)
+
+
+
+
+# Dataset_id_202104
+
+trim202104_DF <- cleaned_202104_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202104_DF)
+
+
+docked_202104_DF <- cleaned_202104_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202104_DF)
+
+
+electric_202104_DF <- cleaned_202104_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202104_DF)
+
+
+classic_202104_DF <- cleaned_202104_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202104_DF)
+
+
+
+# Dataset_id_202105
+
+trim202105_DF <- cleaned_202105_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202105_DF)
+
+
+docked_202105_DF <- cleaned_202105_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202105_DF)
+
+
+electric_202105_DF <- cleaned_202105_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202105_DF)
+
+
+classic_202105_DF <- cleaned_202105_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202105_DF)
+
+
+
+# Dataset_id_202106
+
+trim202106_DF <- cleaned_202106_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202106_DF)
+
+
+docked_202106_DF <- cleaned_202106_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202106_DF)
+
+
+electric_202106_DF <- cleaned_202106_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202106_DF)
+
+
+classic_202106_DF <- cleaned_202106_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202106_DF)
+
+
+
+# Dataset_id_202107
+
+trim202107_DF <- cleaned_202107_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202107_DF)
+
+
+docked_202107_DF <- cleaned_202107_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202107_DF)
+
+
+electric_202107_DF <- cleaned_202107_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202107_DF)
+
+
+classic_202107_DF <- cleaned_202107_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202107_DF)
+
+
+
+# Dataset_id_202108
+
+trim202108_DF <- cleaned_202108_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202108_DF)
+
+
+docked_202108_DF <- cleaned_202108_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202108_DF)
+
+
+electric_202108_DF <- cleaned_202108_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202108_DF)
+
+
+classic_202108_DF <- cleaned_202108_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202108_DF)
+
+
+
+# Dataset_id_202109
+
+trim202109_DF <- cleaned_202109_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202109_DF)
+
+
+docked_202109_DF <- cleaned_202109_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202109_DF)
+
+
+electric_202109_DF <- cleaned_202109_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202109_DF)
+
+
+classic_202109_DF <- cleaned_202109_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202109_DF)
+
+
+
+# Dataset_id_202110
+
+trim202110_DF <- cleaned_202110_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202110_DF)
+
+
+docked_202110_DF <- cleaned_202110_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202110_DF)
+
+
+electric_202110_DF <- cleaned_202110_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202110_DF)
+
+
+classic_202110_DF <- cleaned_202110_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202110_DF)
+
+
+
+
+# Dataset_id_202111
+
+trim202111_DF <- cleaned_202111_DF %>%
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(trim202111_DF)
+
+
+docked_202111_DF <- cleaned_202111_DF %>%
+  filter(rideable_type == "docked_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(docked_202111_DF)
+
+
+electric_202111_DF <- cleaned_202111_DF %>%
+  filter(rideable_type == "electric_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(electric_202111_DF)
+
+
+classic_202111_DF <- cleaned_202111_DF %>%
+  filter(rideable_type == "classic_bike") %>% 
+  summarize(num_of_member = sum(member_casual == "member"), num_of_casual = sum(member_casual == "casual"))
+
+View(classic_202111_DF)
+
+
+```
+
+## Merge Datasets
+
+At this point, the 12 cleaned datasets were stitched together using the bind_rows() and list() functions. This created 1 complete and cleaned data frame.
+
+```{r}
+
+CleanedBikeData202012 <- read_csv("CleanedBikeData202012.csv")
+
+CleanedBikeData202101 <- read_csv("CleanedBikeData202101.csv")
+
+CleanedBikeData202102 <- read_csv("CleanedBikeData202102.csv")
+
+CleanedBikeData202103 <- read_csv("CleanedBikeData202103.csv")
+
+CleanedBikeData202104 <- read_csv("CleanedBikeData202104.csv")
+
+CleanedBikeData202105 <- read_csv("CleanedBikeData202105.csv")
+
+CleanedBikeData202106 <- read_csv("CleanedBikeData202106.csv")
+
+CleanedBikeData202107 <- read_csv("CleanedBikeData202107.csv")
+
+CleanedBikeData202108 <- read_csv("CleanedBikeData202108.csv")
+
+CleanedBikeData202109 <- read_csv("CleanedBikeData202109.csv")
+
+CleanedBikeData202110 <- read_csv("CleanedBikeData202110.csv")
+
+CleanedBikeData202111 <- read_csv("CleanedBikeData202111.csv")
+
+Complete_BikeData_DF <- bind_rows(list(CleanedBikeData202012, CleanedBikeData202101, CleanedBikeData202102, CleanedBikeData202103, CleanedBikeData202104, CleanedBikeData202105, CleanedBikeData202106, CleanedBikeData202107, CleanedBikeData202108, CleanedBikeData202109, CleanedBikeData202110, CleanedBikeData202111))
+
+write.csv(Complete_BikeData_DF,"CompleteCleanedBikeData.csv", row.names = FALSE)
+
+```
+
+## Find Most Used Routes
+
+To find the most used routes, I used the count() function followed by the arrange() function in descending order. Used the mutate(), round(), sum(), and paste0() functions to find the percentage that route was used. The slice() function was used to limit it to the top 10 most used routes.
+
+The filter() function was used to find the most used routes by members vs casual-users.
+
+```{r}
+
+
+# Get list of most used stations (member & casual)
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv")
+
+top_routes_df <- entire_df %>% 
+  count(start_station_name, end_station_name) %>% 
+  arrange(-n) %>% 
+  mutate(
+    pct = round(n / sum(n) * 100, 3),
+    pct_fmt = paste0(pct, "%")
+  ) %>% 
+  slice(1:10)
+
+write.csv(top_routes_df,"TopRoutesGeneral_.csv", row.names = FALSE)
+
+
+
+
+
+# Get list of most used stations (member only)
+
+library("tidyverse")
+
+entire_member_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(member_casual == "member")
+
+top_routes_member_df <- entire_member_df %>%
+  count(start_station_name, end_station_name) %>% 
+  arrange(-n) %>% 
+  mutate(
+    pct = round(n / sum(n) * 100, 3),
+    pct_fmt = paste0(pct, "%")
+  ) %>% 
+  slice(1:10)
+
+write.csv(top_routes_member_df,"TopRoutesMember_.csv", row.names = FALSE)
+
+
+
+
+
+# Get list of most used stations (casual only)
+
+library("tidyverse")
+
+entire_casual_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(member_casual == "casual")
+
+top_routes_casual_df <- entire_casual_df %>%
+  count(start_station_name, end_station_name) %>% 
+  arrange(-n) %>% 
+  mutate(
+    pct = round(n / sum(n) * 100, 3),
+    pct_fmt = paste0(pct, "%")
+  ) %>% 
+  slice(1:10)
+
+write.csv(top_routes_casual_df,"TopRoutesCasual_.csv", row.names = FALSE)
+
+
+```
+
+## Create Bar Charts
+
+
+Next, I created bar charts for 5 of the most popular start stations for casual-users as well as 1 bar chart that included data from all start stations. The x-axis is "Bike-Type" (rideable_type), the y-axis is the number of starts (count), and the charts are faceted by "Rider Type" (member_casual). 
+
+Start Station Names:
+
+Streeter Dr & Grand Ave
+Michigan Ave & Oak St
+Millennium Park
+Lake Shore Dr & Monroe St
+Buckingham Fountain
+
+The following code was used to generate bar charts for the 5 start stations listed above.
+
+```{r}
+
+# "Streeter Dr & Grand Ave" Bar Chart
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(start_station_name == "Streeter Dr & Grand Ave")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type: Streeter Dr & Grand Ave", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+
+
+
+# "Millennium Park" Bar Chart
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(start_station_name == "Millennium Park")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type: Millennium Park", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+
+
+
+# "Michigan Ave & Oak St" Bar Chart
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(start_station_name == "Michigan Ave & Oak St")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type: Michigan Ave & Oak St", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+
+
+
+# "Lake Shore Dr & Monroe St" Bar Chart
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(start_station_name == "Lake Shore Dr & Monroe St")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type: Lake Shore Dr & Monroe St", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+
+
+
+# "Buckingham Fountain" Bar Chart
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv") %>% 
+  filter(start_station_name == "Buckingham Fountain")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type: Buckingham Fountain", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+```
+
+
+The next code chunk was used to generate a bar chart showing the most popular Bike-Type (rideable_type) while faceting by Rider Type (member_casual).
+
+
+```{r}
+
+library("tidyverse")
+
+entire_df <- read_csv("CompleteCleanedBikeData.csv")
+
+ggplot(data = entire_df)+
+  geom_bar(mapping = aes(x=rideable_type, fill=member_casual))+
+  labs(
+    title = "Starts per Bike-Type", 
+    subtitle = "Dec 2020 - Nov 2021",
+    fill = "Rider type",
+    x = "Bike-Type"
+  )+
+  scale_fill_manual(values = c("#339999","#FF0000"))+
+  facet_wrap(~member_casual)+
+  theme_minimal()+
+  theme(
+    axis.text.x = element_text(angle = 30),
+    panel.grid.major.x = element_blank()
+  )
+
+
+```
+
+This concludes the documentation of the R code that was used to find the most popular Bike-Type and the most used stations. All spreadsheets, pivot tables and bar charts were organized into a sildeshow presentation in order to better display the findings.
+
+
+
